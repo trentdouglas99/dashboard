@@ -3,7 +3,7 @@ import { useTheme, Box } from "@mui/material";
 import { tokens } from "../theme";
 import React, { useEffect, useState } from 'react';
 
-const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
+const InsideTemp = ({ isCustomLineColors = false, isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -26,8 +26,6 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
 
     fetchData();
   }, []);
-
-  console.log(data)
   
   // Function to transform each entry
   const transformEntry_insideTemp = (entry) => {
@@ -36,74 +34,18 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
       y: entry.Inside_Temperature,
     };
   };
-  const transformEntry_outsideTemp = (entry) => {
-    return {
-      x: entry.Current_Time,
-      y: entry.Outside_Temperature,
-    };
-  };
-  const transformEntry_insideHumidity = (entry) => {
-    return {
-      x: entry.Current_Time,
-      y: entry.Inside_Humidity,
-    };
-  };
-  const transformEntry_outsideHumidity = (entry) => {
-    return {
-      x: entry.Current_Time,
-      y: entry.Outside_Temperature,
-    };
-  };
-  const transformEntry_insidePressure = (entry) => {
-    return {
-      x: entry.Current_Time,
-      y: entry.Inside_Pressure,
-    };
-  };
 
   const transformEntry_insideTemp_transformed = data.map(transformEntry_insideTemp);
-  const transformEntry_outsideTemp_transformed = data.map(transformEntry_outsideTemp);
-  const transformEntry_insideHumidity_transformed = data.map(transformEntry_insideHumidity);
-  const transformEntry_outsideHumidity_transformed = data.map(transformEntry_outsideHumidity);
-  const transformEntry_insidePressure_transformed = data.map(transformEntry_insidePressure);
 
-  const jsonData_insideTemp = {
+  const jsonData_insideTemp = [{
     id: "insideTemp",
     color: tokens("dark").greenAccent[500],
     data: transformEntry_insideTemp_transformed
-  }
-  const jsonData_outsideTemp = {
-    id: "outsideTemp",
-    color: tokens("dark").redAccent[200],
-    data: transformEntry_outsideTemp_transformed
-  }
-  const jsonData_insideHumidity = {
-    id: "insideHumidity",
-    color: tokens("dark").greenAccent[500],
-    data: transformEntry_insideHumidity_transformed
-  }
-  const jsonData_outsideHumidity = {
-    id: "outsideHumidity",
-    color: tokens("dark").greenAccent[500],
-    data: transformEntry_outsideHumidity_transformed
-  }
-  const jsonData_insidePressure = {
-    id: "insidePressure",
-    color: tokens("dark").greenAccent[500],
-    data: transformEntry_insidePressure_transformed
-  }
-
-  const finalData = [
-    jsonData_insideTemp,
-    jsonData_outsideTemp,
-    jsonData_insideHumidity,
-    jsonData_outsideHumidity,
-    jsonData_insidePressure,
-  ]
+  }]
   
   return (
     <ResponsiveLine
-      data={finalData}
+      data={jsonData_insideTemp}
       theme={{
         axis: {
           domain: {
@@ -208,4 +150,4 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
   );
 };
 
-export default LineChart;
+export default InsideTemp;

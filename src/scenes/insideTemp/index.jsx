@@ -1,16 +1,16 @@
 import { Box } from "@mui/material";
 import Header from "../../components/Header";
-import LineChart from "../../components/LineChart";
+import InsideTemp from "../../components/InsideTemp";
 
-const Line = () => {
+const InsideTempGraph = () => {
   return (
     <Box m="20px">
       <Header title="Line Chart" subtitle="Simple Line Chart" />
       <Box height="75vh">
-        <LineChart />
+        <InsideTemp />
       </Box>
     </Box>
   );
 };
 
-export default Line;
+export default InsideTempGraph;

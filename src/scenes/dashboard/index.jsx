@@ -1,7 +1,7 @@
 import { Box, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import Header from "../../components/Header";
-import LineChart from "../../components/LineChart";
+import InsideTemp from "../../components/InsideTemp";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -12,7 +12,6 @@ const Dashboard = () => {
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-            <LineChart isDashboard={true} />
       </Box>
     </Box>
   );

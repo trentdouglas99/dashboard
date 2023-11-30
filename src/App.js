@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
-import Line from "./scenes/line";
+import InsideTempGraph from "./scenes/insideTemp";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 
@@ -21,7 +21,7 @@ function App() {
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/line" element={<Line />} />
+              <Route path="/insideTemps" element={<InsideTempGraph />} />
             </Routes>
           </main>
         </div>

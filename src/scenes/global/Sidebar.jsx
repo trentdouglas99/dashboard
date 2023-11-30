@@ -116,8 +116,8 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Weather Data"
-              to="/line"
+              title="Inside Temps"
+              to="/insideTemps"
               icon={<TimelineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

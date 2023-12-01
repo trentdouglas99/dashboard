@@ -4,6 +4,7 @@ import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import InsideTempGraph from "./scenes/insideTemp";
+import OutsideTempGraph from "./scenes/outsideTemp";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 
@@ -22,6 +23,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/insideTemps" element={<InsideTempGraph />} />
+              <Route path="/outsideTemps" element={<OutsideTempGraph />} />
             </Routes>
           </main>
         </div>

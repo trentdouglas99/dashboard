@@ -5,10 +5,10 @@ import InsideTemp from "../../components/InsideTemp";
 const InsideTempGraph = () => {
   return (
     <Box m="20px">
-      <Header title="Line Chart" subtitle="Simple Line Chart" />
+      <Header title="Inside Temperatures Graph" text-align="center" />
       <Box height="75vh">
         <InsideTemp />
-      </Box>
+      </Box>     
     </Box>
   );
 };

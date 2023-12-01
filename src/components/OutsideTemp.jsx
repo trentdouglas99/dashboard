@@ -3,7 +3,7 @@ import { useTheme, Box } from "@mui/material";
 import { tokens } from "../theme";
 import React, { useEffect, useState } from 'react';
 
-const InsideTemp = ({ isCustomLineColors = false, isDashboard = false }) => {
+const OutsideTemp = ({ isCustomLineColors = false, isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -28,24 +28,24 @@ const InsideTemp = ({ isCustomLineColors = false, isDashboard = false }) => {
   }, []);
   
   // Function to transform each entry
-  const transformEntry_insideTemp = (entry) => {
+  const transformEntry_outsideTemp = (entry) => {
     return {
       x: entry.Current_Time,
-      y: entry.Inside_Temperature,
+      y: entry.Outside_Temperature,
     };
   };
 
-  const transformEntry_insideTemp_transformed = data.map(transformEntry_insideTemp);
+  const transformEntry_outsideTemp_transformed = data.map(transformEntry_outsideTemp);
 
-  const jsonData_insideTemp = [{
-    id: "insideTemp",
+  const jsonData_outsideTemp = [{
+    id: "outsideTemp",
     color: tokens("dark").greenAccent[500],
-    data: transformEntry_insideTemp_transformed
+    data: transformEntry_outsideTemp_transformed
   }]
   
   return (
     <ResponsiveLine
-      data={jsonData_insideTemp}
+      data={jsonData_outsideTemp}
       theme={{
         axis: {
           domain: {
@@ -151,4 +151,4 @@ const InsideTemp = ({ isCustomLineColors = false, isDashboard = false }) => {
   );
 };
 
-export default InsideTemp;
+export default OutsideTemp;

@@ -7,6 +7,9 @@ import InsideTempGraph from "./scenes/insideTemp";
 import OutsideTempGraph from "./scenes/outsideTemp";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
+import InsideHumidityGraph from "./scenes/insideHumidity";
+import OutsideHumidityGraph from "./scenes/outsideHumidity";
+import PressureGraph from "./scenes/pressure";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -24,6 +27,9 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/insideTemps" element={<InsideTempGraph />} />
               <Route path="/outsideTemps" element={<OutsideTempGraph />} />
+              <Route path="/insideHumidity" element={<InsideHumidityGraph />} />
+              <Route path="/outsideHumidity" element={<OutsideHumidityGraph />} />
+              <Route path="/pressure" element={<PressureGraph />} />
             </Routes>
           </main>
         </div>

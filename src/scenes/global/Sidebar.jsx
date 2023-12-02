@@ -5,8 +5,11 @@ import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import ThermostatIcon from '@mui/icons-material/Thermostat';
+import OpacityIcon from '@mui/icons-material/Opacity';
+import AirIcon from '@mui/icons-material/Air';
+
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -118,14 +121,35 @@ const Sidebar = () => {
             <Item
               title="Inside Temps"
               to="/insideTemps"
-              icon={<TimelineOutlinedIcon />}
+              icon={<ThermostatIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Outside Temps"
               to="/outsideTemps"
-              icon={<TimelineOutlinedIcon />}
+              icon={<ThermostatIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Inside Humidity"
+              to="/insideHumidity"
+              icon={<OpacityIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Outside Humidity"
+              to="/outsideHumidity"
+              icon={<OpacityIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Pressure"
+              to="/pressure"
+              icon={<AirIcon />}
               selected={selected}
               setSelected={setSelected}
             />

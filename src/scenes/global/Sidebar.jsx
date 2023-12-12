@@ -9,6 +9,7 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 import OpacityIcon from '@mui/icons-material/Opacity';
 import AirIcon from '@mui/icons-material/Air';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
 
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -150,6 +151,20 @@ const Sidebar = () => {
               title="Pressure"
               to="/pressure"
               icon={<AirIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Combined Weather"
+              to="/combined"
+              icon={<WbSunnyIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Video Stream"
+              to="/videostream"
+              icon={<WbSunnyIcon />}
               selected={selected}
               setSelected={setSelected}
             />

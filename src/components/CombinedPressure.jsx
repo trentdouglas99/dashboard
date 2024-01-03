@@ -1,5 +1,5 @@
 import { ResponsiveLine } from "@nivo/line";
-import { useTheme, Box } from "@mui/material";
+import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
 import React, { useEffect, useState } from 'react';
 
@@ -80,7 +80,7 @@ const Pressure = ({ isCustomLineColors = false, isDashboard = false }) => {
         },
       }}
       colors={isDashboard ? { datum: "color" } : { scheme: 'category10' }} // added
-      margin={{ top: 10, right: 150, bottom: 10, left: 60 }}
+      margin={{ top: 10, right: 150, bottom: 5, left: 60 }}
       xScale={{ type: "point" }}
       yScale={{
         type: "linear",

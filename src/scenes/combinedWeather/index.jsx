@@ -8,13 +8,13 @@ const CombinedGraphs = () => {
   return (
     <Box m="20px">
       <Header title="Combined Weather Graphs" text-align="center" />
-      <Box height="22vh">
+      <Box height="33vh">
         <CombinedPressure />
       </Box> 
-      <Box height="22vh">
+      <Box height="33vh">
         <CombinedHumidity />
       </Box>     
-      <Box height="30vh">
+      <Box height="33vh">
         <CombinedTemperature />
       </Box>
     </Box>

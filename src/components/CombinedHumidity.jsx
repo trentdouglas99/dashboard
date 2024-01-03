@@ -1,5 +1,5 @@
 import { ResponsiveLine } from "@nivo/line";
-import { useTheme, Box } from "@mui/material";
+import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
 import React, { useEffect, useState } from 'react';
 
@@ -28,22 +28,10 @@ const CombinedHumidity = ({ isCustomLineColors = false, isDashboard = false }) =
   }, []);
   
   // Function to transform each entry
-  const transformEntry_insideTemperature = (entry) => {
-    return {
-      x: entry.Current_Time,
-      y: entry.Inside_Temperature,
-    };
-  };
   const transformEntry_insideHumidity = (entry) => {
     return {
       x: entry.Current_Time,
       y: entry.Inside_Humidity,
-    };
-  };
-  const transformEntry_outsideTemperature = (entry) => {
-    return {
-      x: entry.Current_Time,
-      y: entry.Outside_Temperature,
     };
   };
   const transformEntry_outsideHumidity = (entry) => {
@@ -52,18 +40,9 @@ const CombinedHumidity = ({ isCustomLineColors = false, isDashboard = false }) =
       y: entry.Outside_Humidity,
     };
   };
-  const transformEntry_pressure = (entry) => {
-    return {
-      x: entry.Current_Time,
-      y: entry.Inside_Pressure,
-    };
-  };
 
-  const transformEntry_insideTemperature_transformed = data.map(transformEntry_insideTemperature);
   const transformEntry_insideHumidity_transformed = data.map(transformEntry_insideHumidity);
-  const transformEntry_outsideTemperature_transformed = data.map(transformEntry_outsideTemperature);
   const transformEntry_outsideHumidity_transformed = data.map(transformEntry_outsideHumidity);
-  const transformEntry_pressure_transformed = data.map(transformEntry_pressure);
 
   const jsonData_all_humidity = [
     {
@@ -76,16 +55,6 @@ const CombinedHumidity = ({ isCustomLineColors = false, isDashboard = false }) =
       color: tokens("dark").greenAccent[500],
       data: transformEntry_outsideHumidity_transformed,
     }
-    
-    // id: "insideTemperature",
-    // color: tokens("dark").greenAccent[500],
-    // data: transformEntry_insideTemperature_transformed,
-    // id: "outsideHumidity",
-    // color: tokens("dark").greenAccent[500],
-    // data: transformEntry_outsideTemperature_transformed,
-    // id: "pressure",
-    // color: tokens("dark").greenAccent[500],
-    // data: transformEntry_pressure_transformed,
   ]
   
   return (
@@ -125,7 +94,7 @@ const CombinedHumidity = ({ isCustomLineColors = false, isDashboard = false }) =
         },
       }}
       colors={isDashboard ? { datum: "color" } : { scheme: 'category10' }} // added
-      margin={{ top: 10, right: 150, bottom: 10, left: 60 }}
+      margin={{ top: 10, right: 150, bottom: 5, left: 60 }}
       xScale={{ type: "point" }}
       yScale={{
         type: "linear",

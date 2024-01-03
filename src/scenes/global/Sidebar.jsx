@@ -6,10 +6,11 @@ import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import ThermostatIcon from '@mui/icons-material/Thermostat';
-import OpacityIcon from '@mui/icons-material/Opacity';
-import AirIcon from '@mui/icons-material/Air';
+// import ThermostatIcon from '@mui/icons-material/Thermostat';
+// import OpacityIcon from '@mui/icons-material/Opacity';
+// import AirIcon from '@mui/icons-material/Air';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
 
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -33,7 +34,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [selected, setSelected] = useState("Dashboard");
 
   return (
@@ -119,7 +120,7 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            {/* <Item
               title="Inside Temps"
               to="/insideTemps"
               icon={<ThermostatIcon />}
@@ -153,10 +154,10 @@ const Sidebar = () => {
               icon={<AirIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
             <Item
               title="Combined Weather"
-              to="/combined"
+              to="/weather"
               icon={<WbSunnyIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -164,7 +165,7 @@ const Sidebar = () => {
             <Item
               title="Video Stream"
               to="/videostream"
-              icon={<WbSunnyIcon />}
+              icon={<CameraAltIcon />}
               selected={selected}
               setSelected={setSelected}
             />

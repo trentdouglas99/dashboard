@@ -96,7 +96,7 @@ const CombinedTemperature = ({ isCustomLineColors = false, isDashboard = false }
           },
         }}
         colors={isDashboard ? { datum: "color" } : { scheme: 'category10' }} // added
-        margin={{ top: 10, right: 150, bottom: 90, left: 60 }}
+        margin={{ top: 10, right: 150, bottom: 5, left: 60 }}
         xScale={{ type: "point" }}
         yScale={{
           type: "linear",

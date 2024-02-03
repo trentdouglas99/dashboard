@@ -12,6 +12,7 @@ import { ColorModeContext, useMode } from "./theme";
 // import PressureGraph from "./scenes/pressure";
 import CombinedGraphs from "./scenes/combinedWeather";
 import VideoStream from "./scenes/videoStream";
+import TimeLapses from "./scenes/timeLapses"
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -34,6 +35,7 @@ function App() {
               <Route path="/pressure" element={<PressureGraph />} /> */}
               <Route path="/weather" element={<CombinedGraphs />} />
               <Route path="/videostream" element={<VideoStream />} />
+              <Route path="/timelapses" element={<TimeLapses />} />              
             </Routes>
           </main>
         </div>

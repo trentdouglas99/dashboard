@@ -84,7 +84,7 @@ const Pressure = ({ isCustomLineColors = false, isDashboard = false }) => {
       xScale={{ type: "point" }}
       yScale={{
         type: "linear",
-        min: "800",
+        min: "790",
         max: "820",
         stacked: true,
         reverse: false,

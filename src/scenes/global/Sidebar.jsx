@@ -11,6 +11,7 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 // import AirIcon from '@mui/icons-material/Air';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import HistoryIcon from '@mui/icons-material/History';
 
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -166,6 +167,13 @@ const Sidebar = () => {
               title="Video Stream"
               to="/videostream"
               icon={<CameraAltIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Time Lapses"
+              to="/timelapses"
+              icon={<HistoryIcon />}
               selected={selected}
               setSelected={setSelected}
             />

@@ -1,0 +1,455 @@
+INFO:     Started server process [81914]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:38904 - "GET /get_time_lapse?filename=01-06-2024.mp4 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:38904 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40700 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [81914]
+INFO:     Started server process [5042]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://192.168.0.20:8000 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5042]
+INFO:     Started server process [5047]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://192.168.0.20:8000 (Press CTRL+C to quit)
+INFO:     192.168.0.20:33424 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:33424 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:33440 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.20:33440 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.20:33440 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.20:42290 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:42290 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:42306 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.20:42306 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.20:41574 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.20:45068 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.20:45068 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5047]
+INFO:     Started server process [6244]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://192.168.0.20:8000 (Press CTRL+C to quit)
+INFO:     192.168.0.27:63718 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.27:63717 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.27:63719 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.27:62469 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.27:62468 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.27:62467 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.27:62467 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.27:62468 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.27:62479 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.27:62479 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.27:62479 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.27:62482 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.27:62579 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.27:62580 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.27:62581 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.27:62583 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.27:62584 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.27:62634 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.27:62633 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.27:62632 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.27:62632 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.27:62634 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.26:53752 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:53751 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:53753 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.26:54017 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:54016 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:54017 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.26:54017 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.26:54016 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.26:54019 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.26:54020 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.26:54228 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:54227 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:54229 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.24:49519 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49520 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49521 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.24:49521 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49525 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.20:59848 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:59864 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:59866 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.20:59866 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.20:55218 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.20:52560 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49652 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49652 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49652 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:57372 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49673 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:57372 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49673 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49674 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.20:36144 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.20:51268 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:51260 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:58578 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:58578 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49692 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49693 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:34034 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.20:34034 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     192.168.0.20:33008 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49676 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:33008 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:52666 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49676 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49677 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49697 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49697 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.20:41164 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49699 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49680 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:41164 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49699 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49680 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49699 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49681 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.20:52848 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49686 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49702 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:52848 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49702 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49705 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49704 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:43970 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:43970 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49705 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49704 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:35404 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49707 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49708 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:45128 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:45128 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49708 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49708 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49710 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:45128 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49708 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:45128 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49708 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49708 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49708 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49709 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49708 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49709 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49710 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49710 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49710 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49710 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:45768 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:45778 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.24:49713 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49714 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.26:49711 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49711 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.20:44916 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49718 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49713 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49718 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:44916 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49719 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.26:49713 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49714 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.20:44930 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49716 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49721 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:45906 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:45906 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:46088 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49724 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49718 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49724 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:46088 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49718 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:46088 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49724 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:46088 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49718 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49724 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49726 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49720 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:32978 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:49306 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:49306 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49734 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:54064 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49736 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:54072 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49737 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.20:56850 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.20:56534 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49739 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:56534 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49739 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49723 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49723 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49723 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49723 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.26:49723 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49723 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49723 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49724 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49740 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49754 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.24:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49758 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49759 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.20:58898 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:58898 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49760 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49763 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:56688 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:56688 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:36874 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49766 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49769 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49770 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:38062 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49770 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:38062 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:38062 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49771 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49771 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49771 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49771 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49774 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:43586 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49774 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49774 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49776 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.24:49777 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49778 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49779 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.24:49777 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49774 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49774 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:33618 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:33618 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:33624 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.20:33618 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:33618 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:42156 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49782 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49783 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49786 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49787 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:42172 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:42172 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49790 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49791 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49794 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49795 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:41888 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:41888 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:37348 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49799 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49798 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:37348 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49799 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49798 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49799 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49798 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:37354 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:37354 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49802 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49803 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49802 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49803 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49802 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:37354 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49803 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49802 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:37354 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:37354 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49803 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49802 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49803 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49802 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:57258 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49806 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49807 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:57258 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49806 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:57258 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49807 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49810 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49811 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:46170 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49810 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49811 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:46170 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:46170 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:57272 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:57272 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49815 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49814 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49815 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49814 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:49922 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.24:49922 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     192.168.0.24:49922 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.20:49342 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50121 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:49350 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50144 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50144 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:44980 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50167 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50167 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50208 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:57946 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50245 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50254 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50296 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50296 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50296 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49732 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49733 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49732 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49732 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50342 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49732 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49732 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50375 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50376 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49736 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49735 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50387 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.24:50387 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50387 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50663 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50668 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50673 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     192.168.0.24:50699 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50698 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50733 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50754 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50754 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50733 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.24:50772 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49749 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49749 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49749 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49751 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.26:49749 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49749 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49749 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49749 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49749 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49749 - "GET /get_time_lapse?filename=01-04-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49752 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49750 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49754 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.26:49753 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50994 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:50999 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:51984 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:51985 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:52044 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.24:52045 - "GET /get_time_lapse?filename=01-05-2024.mp4 HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [6244]
+INFO:     Started server process [2413]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://192.168.0.20:8000 (Press CTRL+C to quit)
+INFO:     192.168.0.20:42350 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:42366 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:42378 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.20:42350 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:42366 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.20:42378 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found
+INFO:     192.168.0.20:42378 - "GET /get_time_lapse?filename=01-09-2024.mp4 HTTP/1.1" 200 OK
+INFO:     192.168.0.34:54293 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.34:54294 - "GET /filenames HTTP/1.1" 200 OK
+INFO:     192.168.0.34:54293 - "GET /get_time_lapse?filename=SELECT%20DATE HTTP/1.1" 404 Not Found

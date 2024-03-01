@@ -10,6 +10,8 @@ const TimeLapses = () => {
   const colors = tokens(theme.palette.mode);
 
   const [data, setData] = useState([]);
+  const [selectedOption, setSelectedOption] = useState(0);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +32,6 @@ const TimeLapses = () => {
   }, []); // The empty dependency array ensures that this effect runs once after the initial render
 
 
-  const [selectedOption, setSelectedOption] = useState("SELECT DATE");
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
@@ -83,18 +84,6 @@ const TimeLapses = () => {
             </MenuItem>
         ))}
       </Select>
-      {/* <iframe
-            title="Camera Controls"
-            src={videoURL}
-            style={{
-              width: '75%',
-              height: '500px',
-              position: 'absolute',
-              top: 220,
-              left: 80,
-              zIndex: 0,
-            }}
-        ></iframe> */}
 
       <Modal
         isOpen={modalIsOpen}
@@ -113,14 +102,13 @@ const TimeLapses = () => {
           },
         }}
       >
+      selectedOption != 0 ? (
         <video controls width="100%" height="100%">
           <source src={videoURL} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+      )
       </Modal>
-      
-      
-      
     </Box>
   );
 };

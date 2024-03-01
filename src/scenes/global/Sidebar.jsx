@@ -6,12 +6,10 @@ import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-// import ThermostatIcon from '@mui/icons-material/Thermostat';
-// import OpacityIcon from '@mui/icons-material/Opacity';
-// import AirIcon from '@mui/icons-material/Air';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import HistoryIcon from '@mui/icons-material/History';
+import ThermostatIcon from '@mui/icons-material/Thermostat';
 
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -121,41 +119,13 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            {/* <Item
-              title="Inside Temps"
-              to="/insideTemps"
+            <Item
+              title="Live Weather"
+              to="/liveweather"
               icon={<ThermostatIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
-              title="Outside Temps"
-              to="/outsideTemps"
-              icon={<ThermostatIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Inside Humidity"
-              to="/insideHumidity"
-              icon={<OpacityIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Outside Humidity"
-              to="/outsideHumidity"
-              icon={<OpacityIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Pressure"
-              to="/pressure"
-              icon={<AirIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            /> */}
             <Item
               title="Combined Weather"
               to="/weather"

@@ -3,16 +3,12 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
-// import InsideTempGraph from "./scenes/insideTemp";
-// import OutsideTempGraph from "./scenes/outsideTemp";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
-// import InsideHumidityGraph from "./scenes/insideHumidity";
-// import OutsideHumidityGraph from "./scenes/outsideHumidity";
-// import PressureGraph from "./scenes/pressure";
 import CombinedGraphs from "./scenes/combinedWeather";
 import VideoStream from "./scenes/videoStream";
 import TimeLapses from "./scenes/timeLapses"
+import LiveWeather from "./scenes/liveWeather"
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -28,12 +24,8 @@ function App() {
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              {/* <Route path="/insideTemps" element={<InsideTempGraph />} />
-              <Route path="/outsideTemps" element={<OutsideTempGraph />} />
-              <Route path="/insideHumidity" element={<InsideHumidityGraph />} />
-              <Route path="/outsideHumidity" element={<OutsideHumidityGraph />} />
-              <Route path="/pressure" element={<PressureGraph />} /> */}
               <Route path="/weather" element={<CombinedGraphs />} />
+              <Route path="/liveweather" element={<LiveWeather />} />
               <Route path="/videostream" element={<VideoStream />} />
               <Route path="/timelapses" element={<TimeLapses />} />              
             </Routes>

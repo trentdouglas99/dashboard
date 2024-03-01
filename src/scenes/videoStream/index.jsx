@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Select, MenuItem, Button } from "@mui/material";
+import { Select, MenuItem, Button } from "@mui/material";
 import Header from "../../components/Header";
 import Modal from 'react-modal';
 import { useTheme } from "@mui/material";
@@ -9,18 +9,18 @@ const VideoStream = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  const [selectedOption, setSelectedOption] = useState("CAMERA 1");
+  const [selectedOption, setSelectedOption] = useState("INSIDE");
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
   const getIframeSrc = () => {
-    if (selectedOption === "CAMERA 1") {
-      return "http://192.168.0.20:8084/?action=stream";
+    if (selectedOption === "INSIDE") {
+      return "http://192.168.0.27:8084/?action=stream";
     }
-    else if (selectedOption === "CAMERA 2") {
-      return "http://192.168.0.20:8085/?action=stream";
+    else if (selectedOption === "OUTSIDE") {
+      return "http://192.168.0.20:8084/?action=stream";
     }
   };
 
@@ -35,16 +35,16 @@ const VideoStream = () => {
   };
 
   const getIframeSrcControls = () => {
-    if (selectedOption === "CAMERA 1") {
-      return "http://192.168.0.20:8084/control.htm";
+    if (selectedOption === "INSIDE") {
+      return "http://192.168.0.27:8084/control.htm";
     }
-    else if (selectedOption === "CAMERA 2") {
-      return "http://192.168.0.20:8085/control.htm";
+    else if (selectedOption === "OUTSIDE") {
+      return "http://192.168.0.20:8084/control.htm";
     }
   };
 
   return (
-    <Box m="20px">
+    <div style={{ height: '75vh', overflowY: 'auto', margin: '20px' }}>
       <Header title="Live Video Stream" text-align="center" />
 
       <Select 
@@ -59,8 +59,8 @@ const VideoStream = () => {
           bottom: "10px",
         }}
       >
-        <MenuItem value="CAMERA 1">Camera 1</MenuItem>
-        <MenuItem value="CAMERA 2">Camera 2</MenuItem>
+        <MenuItem value="INSIDE">Inside</MenuItem>
+        <MenuItem value="OUTSIDE">Outside</MenuItem>
       </Select>
       <Button 
         type="submit" 
@@ -123,20 +123,15 @@ const VideoStream = () => {
           ></iframe>
         </div>
       </Modal>
-      <Box height="100vh" width="100vw">
-        <img
-          style={{ width: '75%'}}
+      <img
+          style={{ width: '100%'}}
           id="streamimage"
           className="xform"
           src={getIframeSrc()}
           alt={selectedOption === "liveFeed" ? "LIVE FEED" : "CONTROL"}
-        />
-      </Box>
-
-      
-    </Box>
+      />
+    </div>
   );
 };
 
 export default VideoStream;
-

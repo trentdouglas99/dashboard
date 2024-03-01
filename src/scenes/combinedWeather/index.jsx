@@ -6,18 +6,18 @@ import CombinedPressure from "../../components/CombinedPressure";
 
 const CombinedGraphs = () => {
   return (
-    <Box m="20px">
+    <div style={{ height: '85vh', overflowY: 'scroll', margin:'20px' }}>
       <Header title="Combined Weather Graphs" text-align="center" />
-      <Box height="33vh">
+      <Box height="30vh">
         <CombinedPressure />
       </Box> 
-      <Box height="33vh">
+      <Box height="30vh">
         <CombinedHumidity />
       </Box>     
-      <Box height="33vh">
+      <Box height="30vh">
         <CombinedTemperature />
       </Box>
-    </Box>
+    </div>
   );
 };
 

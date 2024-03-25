@@ -9,6 +9,7 @@ import CombinedGraphs from "./scenes/combinedWeather";
 import VideoStream from "./scenes/videoStream";
 import TimeLapses from "./scenes/timeLapses"
 import LiveWeather from "./scenes/liveWeather"
+import Message from "./scenes/message"
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -28,6 +29,7 @@ function App() {
               <Route path="/liveweather" element={<LiveWeather />} />
               <Route path="/videostream" element={<VideoStream />} />
               <Route path="/timelapses" element={<TimeLapses />} />              
+              <Route path="/message" element={<Message />} />              
             </Routes>
           </main>
         </div>

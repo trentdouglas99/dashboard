@@ -10,6 +10,7 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import HistoryIcon from '@mui/icons-material/History';
 import ThermostatIcon from '@mui/icons-material/Thermostat';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -144,6 +145,13 @@ const Sidebar = () => {
               title="Time Lapses"
               to="/timelapses"
               icon={<HistoryIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Message"
+              to="/message"
+              icon={<EditIcon />}
               selected={selected}
               setSelected={setSelected}
             />

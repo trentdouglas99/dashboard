@@ -22,6 +22,9 @@ const VideoStream = () => {
     else if (selectedOption === "OUTSIDE") {
       return "http://192.168.0.20:8084/?action=stream";
     }
+    else if (selectedOption === "GARAGE") {
+      return "http://192.168.0.31:8084/?action=stream";
+    }
   };
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -40,6 +43,9 @@ const VideoStream = () => {
     }
     else if (selectedOption === "OUTSIDE") {
       return "http://192.168.0.20:8084/control.htm";
+    }
+    else if (selectedOption === "GARAGE") {
+      return "http://192.168.0.31:8084/control.htm";
     }
   };
 
@@ -61,6 +67,7 @@ const VideoStream = () => {
       >
         <MenuItem value="INSIDE">Inside</MenuItem>
         <MenuItem value="OUTSIDE">Outside</MenuItem>
+        <MenuItem value="GARAGE">Garage</MenuItem>
       </Select>
       <Button 
         type="submit" 

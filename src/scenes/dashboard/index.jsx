@@ -47,7 +47,7 @@ const Dashboard = () => {
               style={{ width: '100%'}}
               id="streamimage"
               className="xform"
-              src={"http://192.168.0.31:8084/?action=stream"}
+              src={"http://192.168.0.29:8084/?action=stream"}
           />
         </div>
       </Grid>

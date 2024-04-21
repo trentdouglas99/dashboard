@@ -1,15 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Select, MenuItem, Button } from "@mui/material";
 import Header from "../../components/Header";
 import Modal from 'react-modal';
 import { useTheme } from "@mui/material";
 import { tokens } from "../../theme";
+import imageSrc from '../../img/dino16x9.gif';
 
 const VideoStream = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  const [selectedOption, setSelectedOption] = useState("INSIDE");
+  const [selectedOption, setSelectedOption] = useState("NONE");
+  const [videoStream, setVideoStream] = useState(null);
+  const [fetchController, setFetchController] = useState(null);
+
+  useEffect(() => {
+    if (fetchController) {
+      fetchController.abort(); // Cancel the previous fetch request
+    }
+
+    const controller = new AbortController();
+    setFetchController(controller);
+
+    setVideoStream(getIframeSrc());
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') {
+        if (controller) {
+          controller.abort(); // Cancel the fetch request when the page is hidden
+        }
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      if (controller) {
+        controller.abort(); // Cancel the fetch request when component unmounts or re-renders
+      }
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [selectedOption]); // Fetch new video stream when selectedOption changes
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
@@ -25,9 +56,10 @@ const VideoStream = () => {
     else if (selectedOption === "GARAGE") {
       return "http://192.168.0.29:8084/?action=stream";
     }
+    else if (selectedOption === "NONE") {
+      return imageSrc;
+    }
   };
-
-  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -47,7 +79,12 @@ const VideoStream = () => {
     else if (selectedOption === "GARAGE") {
       return "http://192.168.0.29:8084/control.htm";
     }
+    else if (selectedOption === "NONE") {
+      return imageSrc;
+    }
   };
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
     <div style={{ height: '75vh', overflowY: 'auto', margin: '20px' }}>
@@ -65,6 +102,7 @@ const VideoStream = () => {
           bottom: "10px",
         }}
       >
+        <MenuItem value="NONE">None</MenuItem>
         <MenuItem value="INSIDE">Inside</MenuItem>
         <MenuItem value="OUTSIDE">Outside</MenuItem>
         <MenuItem value="GARAGE">Garage</MenuItem>
@@ -130,13 +168,13 @@ const VideoStream = () => {
           ></iframe>
         </div>
       </Modal>
-      <img
+      {videoStream && (
+        <img
           style={{ width: '100%'}}
-          id="streamimage"
-          className="xform"
-          src={getIframeSrc()}
+          src={videoStream}
           alt={selectedOption === "liveFeed" ? "LIVE FEED" : "CONTROL"}
-      />
+        />
+      )}
     </div>
   );
 };

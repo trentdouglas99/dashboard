@@ -33,9 +33,9 @@ const Dashboard = () => {
   };
 
   return (
-    <Grid container spacing={2} style={{ height: "80vh", overflowY: "auto" }}>
+    <Grid container spacing={2} style={{ height: "90vh", overflowY: "auto" }}>
       <Grid item xs={6}>
-        <div style={{ border: '1px solid #ccc', maxWidth: '100%', height:'230px'}}>
+        <div style={{ border: '1px solid #ccc', maxWidth: '100%', height:'500px'}}>
           <LiveWeather />
         </div>
         <div style={{ border: '1px solid #ccc', padding: '20px', maxWidth: '100%', overflowY:'auto'}}>

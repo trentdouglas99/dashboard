@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Select, MenuItem, Button } from "@mui/material";
+import { Select, MenuItem, Button, Box } from "@mui/material";
 import Header from "../../components/Header";
 import Modal from 'react-modal';
 import { useTheme } from "@mui/material";
@@ -10,9 +10,10 @@ const VideoStream = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  const [selectedOption, setSelectedOption] = useState("NONE");
+  const [selectedOption, setSelectedOption] = useState("none");
   const [videoStream, setVideoStream] = useState(null);
   const [fetchController, setFetchController] = useState(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
     if (fetchController) {
@@ -47,16 +48,16 @@ const VideoStream = () => {
   };
 
   const getIframeSrc = () => {
-    if (selectedOption === "INSIDE") {
+    if (selectedOption === "inside") {
       return "http://192.168.0.27:8084/?action=stream";
     }
-    else if (selectedOption === "OUTSIDE") {
+    else if (selectedOption === "Frontyard") {
       return "http://192.168.0.20:8084/?action=stream";
     }
-    else if (selectedOption === "GARAGE") {
-      return "http://192.168.0.29:8084/?action=stream";
+    else if (selectedOption === "Backyard") {
+      return "http://192.168.0.25:8084/?action=stream";
     }
-    else if (selectedOption === "NONE") {
+    else if (selectedOption === "none") {
       return imageSrc;
     }
   };
@@ -70,24 +71,30 @@ const VideoStream = () => {
   };
 
   const getIframeSrcControls = () => {
-    if (selectedOption === "INSIDE") {
+    if (selectedOption === "inside") {
       return "http://192.168.0.27:8084/control.htm";
     }
-    else if (selectedOption === "OUTSIDE") {
+    else if (selectedOption === "Frontyard") {
       return "http://192.168.0.20:8084/control.htm";
     }
-    else if (selectedOption === "GARAGE") {
-      return "http://192.168.0.29:8084/control.htm";
+    else if (selectedOption === "Backyard") {
+      return "http://192.168.0.25:8084/control.htm";
     }
-    else if (selectedOption === "NONE") {
+    else if (selectedOption === "none") {
       return imageSrc;
     }
   };
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
   return (
-    <div style={{ height: '75vh', overflowY: 'auto', margin: '20px' }}>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      height="75vh"
+      overflowY="auto"
+      margin="20px"
+    >
       <Header title="Live Video Stream" text-align="center" />
 
       <Select 
@@ -99,14 +106,17 @@ const VideoStream = () => {
           fontSize: "14px",
           fontWeight: "bold",
           borderRadius: "5px",
-          bottom: "10px",
+          marginBottom: "10px",
+          width: '100px', // Set a width for the dropdown
+          height: '45px'
         }}
       >
-        <MenuItem value="NONE">None</MenuItem>
-        <MenuItem value="INSIDE">Inside</MenuItem>
-        <MenuItem value="OUTSIDE">Outside</MenuItem>
-        <MenuItem value="GARAGE">Garage</MenuItem>
+        <MenuItem value="none">None</MenuItem>
+        <MenuItem value="inside">Inside</MenuItem>
+        <MenuItem value="Frontyard">Frontyard</MenuItem>
+        <MenuItem value="Backyard">Backyard</MenuItem>
       </Select>
+
       <Button 
         type="submit" 
         variant="contained" 
@@ -117,15 +127,15 @@ const VideoStream = () => {
           color: colors.grey[100],
           fontSize: "14px",
           fontWeight: "bold",
-          padding: "10px 20px",
           borderRadius:"5px",
-          left: "10px",
-          height:"52px",
-          bottom: "10px",
+          width:"100px",
+          height:"45px",
+          marginBottom: "10px", // Add space below the button
         }}
       >
         Controls
       </Button>
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -135,10 +145,12 @@ const VideoStream = () => {
             backgroundColor: "transparent", // Set overlay background to transparent
           },
           content: {
-            left:80,
-            padding: '5px', // Adjust the padding as needed
-            margin: 'auto', // Center the modal horizontally
-            height: '500px'
+            left: "50%", // Center modal
+            top: "50%",
+            transform: "translate(-50%, -50%)", // Adjust to truly center
+            padding: '5px',
+            height: '500px',
+            width: '80%', // Set a width for the modal
           },
         }}
       >
@@ -168,14 +180,15 @@ const VideoStream = () => {
           ></iframe>
         </div>
       </Modal>
+
       {videoStream && (
         <img
-          style={{ width: '100%'}}
+          style={{ width: '100%', marginTop: '20px' }} // Add some margin on top
           src={videoStream}
           alt={selectedOption === "liveFeed" ? "LIVE FEED" : "CONTROL"}
         />
       )}
-    </div>
+    </Box>
   );
 };
 

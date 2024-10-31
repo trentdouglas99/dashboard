@@ -20,71 +20,60 @@ const Dashboard = () => {
   const handleToggleVideoFeed = () => {
     setShowVideoFeed(!showVideoFeed);
     if (!showVideoFeed) {
-      // If video feed is being turned off, set videoStream variables to empty string
       setVideoStreamInside(imageSrc);
       setVideoStreamOutside(imageSrc);
       setVideoStreamGarage(imageSrc);
     } else {
-      // If video feed is being turned on, set videoStream variables to their initial URLs
       setVideoStreamInside("http://192.168.0.27:8084/?action=stream");
       setVideoStreamOutside("http://192.168.0.20:8084/?action=stream");
-      setVideoStreamGarage("http://192.168.0.29:8084/?action=stream");
+      setVideoStreamGarage("http://192.168.0.25:8084/?action=stream");
     }
   };
 
   return (
-    <Grid container spacing={2} style={{ height: "90vh", overflowY: "auto" }}>
-      <Grid item xs={6}>
-        <div style={{ border: '1px solid #ccc', maxWidth: '100%', height:'500px'}}>
+    <Grid container spacing={2} style={{ height: "90vh", padding: '5px', overflowY: "auto" }}>
+      {/* Live Weather Section */}
+      <Grid item xs={12}>
+        <div style={{ maxWidth: '100%', height:'500px', textAlign:'center' }}>
           <LiveWeather />
         </div>
-        <div style={{ border: '1px solid #ccc', padding: '20px', maxWidth: '100%', overflowY:'auto'}}>
+      </Grid>
+      <Grid item xs={12}>
+        <div style={{ width: '100%' }}>
           <Header title="Combined Weather Graphs" style={{ textAlign: 'center' }} />
           <Box height="20vh">
             <CombinedPressure />
-          </Box> 
+          </Box>
           <Box height="20vh">
             <CombinedHumidity />
-          </Box>     
+          </Box>
           <Box height="20vh">
             <CombinedTemperature />
           </Box>
         </div>
       </Grid>
-      <Grid item xs={6}>
-        <div style={{ border: '1px solid #ccc', padding: '20px', maxWidth: '100%', maxHeight:'100%', overflowY:'scroll'}}>
-            <img
-              style={{ width: '100%'}}
-              id="streamimage"
-              className="xform"
-              src={videoStreamInside}
-            />
-            <img
-              style={{ width: '100%'}}
-              id="streamimage"
-              className="xform"
-              src={videoStreamOutside}
-            />
-            <img
-              style={{ width: '100%'}}
-              id="streamimage"
-              className="xform"
-              src={videoStreamGarage}
-            />
+      {/* Video Streams Section */}
+      <Grid item xs={12}>
+      <Box display="flex" justifyContent="center" textAlign="center">
+        <Header title="Video Stream" />
+      </Box>
+        <div style={{ padding: '0px', maxWidth: '100%', maxHeight: '100%', overflowY: 'scroll' }}>
+          <img style={{ width: '100%' }} id="streamimage" className="xform" src={videoStreamInside} />
+          <img style={{ width: '100%' }} id="streamimage" className="xform" src={videoStreamOutside} />
+          <img style={{ width: '100%' }} id="streamimage" className="xform" src={videoStreamGarage} />
         </div>
         <div style={{ textAlign: 'center', marginTop: '10px' }}>
-        <Checkbox
-          checked={showVideoFeed}
-          onChange={handleToggleVideoFeed}
-          inputProps={{ 'aria-label': 'Hide Video Feed' }}
-          style={{ color: colors.secondary }} // Set color to secondary color
-          sx={{
-            '&.Mui-checked': {
-              color: colors.greenAccent[500], // Change the checked color to red
-            },
-          }}
-        />
-
+          <Checkbox
+            checked={showVideoFeed}
+            onChange={handleToggleVideoFeed}
+            inputProps={{ 'aria-label': 'Hide Video Feed' }}
+            style={{ color: colors.secondary }}
+            sx={{
+              '&.Mui-checked': {
+                color: colors.greenAccent[500],
+              },
+            }}
+          />
           <span>Hide Video Feed</span>
         </div>
       </Grid>

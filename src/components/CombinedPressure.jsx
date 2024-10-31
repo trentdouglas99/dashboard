@@ -80,7 +80,7 @@ const Pressure = ({ isCustomLineColors = false, isDashboard = false }) => {
         },
       }}
       colors={isDashboard ? { datum: "color" } : { scheme: 'category10' }} // added
-      margin={{ top: 10, right: 150, bottom: 5, left: 60 }}
+      margin={{ top: 10, right: 10, bottom: 5, left: 50 }}
       xScale={{ type: "point" }}
       yScale={{
         type: "linear",
@@ -123,14 +123,14 @@ const Pressure = ({ isCustomLineColors = false, isDashboard = false }) => {
       useMesh={true}
       legends={[
         {
-          anchor: "bottom-right",
-          direction: "column",
+          anchor: "bottom",
+          direction: "row",
           justify: false,
-          translateX: 100,
+          translateX: 0,
           translateY: 0,
           itemsSpacing: 0,
           itemDirection: "left-to-right",
-          itemWidth: 80,
+          itemWidth: 120,
           itemHeight: 20,
           itemOpacity: 0.75,
           symbolSize: 12,

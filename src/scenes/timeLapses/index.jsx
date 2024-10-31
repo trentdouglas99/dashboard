@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Select, MenuItem, Button } from "@mui/material";
+import { Box, Select, MenuItem, Button, Typography } from "@mui/material";
 import Header from "../../components/Header";
 import Modal from 'react-modal';
 import { useTheme } from "@mui/material";
@@ -9,12 +9,13 @@ const TimeLapses = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  const [data, setData] = useState([]);
-  const [selectedOption, setSelectedOption] = useState(0);
-
+  const [frontyardData, setFrontyardData] = useState([]);
+  const [backyardData, setBackyardData] = useState([]);
+  const [selectedFrontYardOption, setSelectedFrontYardOption] = useState(0);
+  const [selectedBackYardOption, setSelectedBackYardOption] = useState(0);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchFrontYardData = async () => {
       try {
         const response = await fetch('http://192.168.0.20:8000/filenames');
         if (!response.ok) {
@@ -22,37 +23,67 @@ const TimeLapses = () => {
         }
 
         const jsonData = await response.json();
-        setData(jsonData);
+        setFrontyardData(jsonData);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching front yard data:', error);
       }
     };
 
-    fetchData();
-  }, []); // The empty dependency array ensures that this effect runs once after the initial render
+    fetchFrontYardData();
+  }, []);
 
+  useEffect(() => {
+    const fetchBackyardData = async () => {
+      try {
+        const response = await fetch('http://192.168.0.20:8000/filenamesPlants');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
 
+        const jsonData = await response.json();
+        setBackyardData(jsonData);
+      } catch (error) {
+        console.error('Error fetching backyard data:', error);
+      }
+    };
 
-  const handleChange = (event) => {
-    setSelectedOption(event.target.value);
+    fetchBackyardData();
+  }, []);
+
+  const handleFrontYardChange = (event) => {
+    setSelectedFrontYardOption(event.target.value);
   };
-    
+
+  const handleBackYardChange = (event) => {
+    setSelectedBackYardOption(event.target.value);
+  };
+
   const [videoURL, setVideoURL] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const fetchVideoUrl = async () => {
-    setVideoURL('http://192.168.0.20:8000/get_time_lapse?filename=' + selectedOption);
-    console.log(videoURL)
+    if (selectedFrontYardOption) {
+      setVideoURL('http://192.168.0.20:8000/get_time_lapse?filename=' + selectedFrontYardOption);
+      console.log(videoURL);
+    }
+  };
+
+  const fetchVideoUrlPlants = async () => {
+    if (selectedBackYardOption) {
+      setVideoURL('http://192.168.0.20:8000/get_time_lapse_plants?filename=' + selectedBackYardOption);
+      console.log(videoURL);
+    }
   };
 
   useEffect(() => {
-    if (selectedOption) {
-        fetchVideoUrl();
-        openModal()
+    if (selectedFrontYardOption) {
+      fetchVideoUrl();
+      openModal();
+    } else if (selectedBackYardOption) {
+      fetchVideoUrlPlants();
+      openModal();
     }
-  }, [selectedOption]); // Run the effect whenever selectedOption changes
-
-
+  }, [selectedFrontYardOption, selectedBackYardOption]);
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -64,26 +95,61 @@ const TimeLapses = () => {
 
   return (
     <Box m="20px">
-      <Header title="Time Lapses" text-align="center" />
+      <Box display="flex" justifyContent="center" mb={2}>
+        <Header title="Time Lapses" />
+      </Box>
 
-      <Select 
-        value={selectedOption} 
-        onChange={handleChange} 
-        sx={{
-          backgroundColor: colors.blueAccent[700],
-          color: colors.grey[100],
-          fontSize: "14px",
-          fontWeight: "bold",
-          borderRadius: "5px",
-          bottom: "10px",
-        }}
-      >
-        {data.map((fileName, index) => (
+      {/* Front Yard Dropdown */}
+      <Box display="flex" flexDirection="column" alignItems="center" mb={2}>
+        <Typography variant="h6" sx={{ marginBottom: 1 }}>
+          Front Yard
+        </Typography>
+        <Select
+          value={selectedFrontYardOption}
+          onChange={handleFrontYardChange}
+          sx={{
+            backgroundColor: colors.blueAccent[700],
+            color: colors.grey[100],
+            fontSize: "14px",
+            fontWeight: "bold",
+            borderRadius: "5px",
+            bottom: "10px",
+            width: '200px', // Set a width for the dropdown
+          }}
+        >
+          {frontyardData.map((fileName, index) => (
             <MenuItem key={index} value={fileName}>
               {fileName}
             </MenuItem>
-        ))}
-      </Select>
+          ))}
+        </Select>
+      </Box>
+
+      {/* Backyard Dropdown */}
+      <Box display="flex" flexDirection="column" alignItems="center" mb={2}>
+        <Typography variant="h6" sx={{ marginBottom: 1 }}>
+          Back Yard
+        </Typography>
+        <Select
+          value={selectedBackYardOption}
+          onChange={handleBackYardChange}
+          sx={{
+            backgroundColor: colors.blueAccent[700],
+            color: colors.grey[100],
+            fontSize: "14px",
+            fontWeight: "bold",
+            borderRadius: "5px",
+            bottom: "10px",
+            width: '200px', // Set a width for the dropdown
+          }}
+        >
+          {backyardData.map((fileName, index) => (
+            <MenuItem key={index} value={fileName}>
+              {fileName}
+            </MenuItem>
+          ))}
+        </Select>
+      </Box>
 
       <Modal
         isOpen={modalIsOpen}
@@ -91,27 +157,26 @@ const TimeLapses = () => {
         contentLabel="Video"
         style={{
           overlay: {
-            backgroundColor: "transparent", // Set overlay background to transparent
+            backgroundColor: "transparent",
           },
           content: {
-            left:100,
+            left: 100,
             top: '220px',
-            padding: '5px', // Adjust the padding as needed
+            padding: '5px',
             height: '40%',
             width: '75%'
           },
         }}
       >
-      selectedOption != 0 ? (
-        <video controls width="100%" height="100%">
-          <source src={videoURL} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      )
+        {(selectedFrontYardOption || selectedBackYardOption) ? (
+          <video controls width="100%" height="100%">
+            <source src={videoURL} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        ) : null}
       </Modal>
     </Box>
   );
 };
 
 export default TimeLapses;
-

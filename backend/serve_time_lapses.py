@@ -24,10 +24,28 @@ def get_filenames(directory_path: str = '/home/trent/dashboard/public/assets/tim
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
 
+@app.get("/filenamesPlants")
+def get_filenames(directory_path: str = '/home/trent/dashboard/public/assets/time_lapses_plants'):
+    try:
+        filenames = sorted(os.listdir(directory_path))
+        return JSONResponse(content=filenames)
+    except Exception as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)
+
 #/api/get_mp4?filename=my_video
 @app.get("/get_time_lapse")
 def get_video(filename: str = Query(..., description="Name of the MP4 file")):
     mp4_file_path = f"/home/trent/dashboard/public/assets/time_lapses/{filename}"  # Replace with the actual path to your MP4 files
+
+    if not os.path.isfile(mp4_file_path):
+        raise HTTPException(status_code=404, detail="File not found")
+
+    # return StreamingResponse(open(mp4_file_path, mode="rb"), media_type="video/mp4")
+    return FileResponse(mp4_file_path, media_type="video/mp4")
+
+@app.get("/get_time_lapse_plants")
+def get_video(filename: str = Query(..., description="Name of the MP4 file")):
+    mp4_file_path = f"/home/trent/dashboard/public/assets/time_lapses_plants/{filename}"  # Replace with the actual path to your MP4 files
 
     if not os.path.isfile(mp4_file_path):
         raise HTTPException(status_code=404, detail="File not found")

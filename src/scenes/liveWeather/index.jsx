@@ -1,6 +1,7 @@
-import { Box, CircularProgress, LinearProgress } from "@mui/material";
+import { Box, CircularProgress, LinearProgress, Typography } from "@mui/material";
 import Header from "../../components/Header";
 import React, { useEffect, useState } from "react";
+import { tokens } from "../../theme"; // Adjust the path as necessary
 
 const LiveWeather = () => {
     const [data, setData] = useState(null);
@@ -27,7 +28,7 @@ const LiveWeather = () => {
         // Display spinner while data is being fetched
         return (
             <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-                <CircularProgress color="secondary" size={100}/>
+                <CircularProgress color="secondary" size={100} />
             </Box>
         );
     }
@@ -41,35 +42,41 @@ const LiveWeather = () => {
     };
 
     const linearProgressStylesHum = {
-      background: 'linear-gradient(to right, white, blue)', // Adjust gradient colors here
-      height: 50,
-      borderRadius: 0,
-      overflow: 'hidden',
-    };  
-    const linearProgressStylesPres = {
-      background: 'linear-gradient(to right, transparent, darkgrey)', // Adjust gradient colors here
-      height: 50,
-      borderRadius: 0,
-      overflow: 'hidden',
+        background: 'linear-gradient(to right, white, blue)', // Adjust gradient colors here
+        height: 50,
+        borderRadius: 0,
+        overflow: 'hidden',
     };
-  
+    
+    const linearProgressStylesPres = {
+        background: 'linear-gradient(to right, transparent, darkgrey)', // Adjust gradient colors here
+        height: 50,
+        borderRadius: 0,
+        overflow: 'hidden',
+    };
 
     // Render the weather data with gradient bars
     return (
         <Box m="20px">
-            <Header title="Current Weather" textAlign="center" />
+            {/* Centering Box for Header */}
+            <Box display="flex" justifyContent="center" mb={0}>
+                <Header title="Current Weather" />
+            </Box>
             <Box height="75vh">
                 <div>
-                    Inside Temperature: {data.Inside_Temperature} deg
+                    <Typography variant="body1" sx={{ color: tokens.grey }}>
+                        Inside Temperature: {data.Inside_Temperature} deg
+                    </Typography>
                     <LinearProgress
                         variant="determinate"
                         value={data.Inside_Temperature + 100} // Adjust max value as needed
                         style={{ ...linearProgressStylesTemp, width: '100%', marginTop: 5 }}
                     />
-                    
                 </div>
                 <div>
-                    Outside Temperature: {data.Outside_Temperature} deg
+                    <Typography variant="body1" sx={{ color: tokens.grey }}>
+                        Outside Temperature: {data.Outside_Temperature} deg
+                    </Typography>
                     <LinearProgress
                         variant="determinate"
                         value={data.Outside_Temperature + 100} // Adjust max value as needed
@@ -77,7 +84,9 @@ const LiveWeather = () => {
                     />
                 </div>
                 <div>
-                    Inside Humidity: {data.Inside_Humidity}%
+                    <Typography variant="body1" sx={{ color: tokens.grey }}>
+                        Inside Humidity: {data.Inside_Humidity}%
+                    </Typography>
                     <LinearProgress
                         variant="determinate"
                         value={data.Inside_Humidity + 100}
@@ -85,7 +94,9 @@ const LiveWeather = () => {
                     />
                 </div>
                 <div>
-                    Outside Humidity: {data.Outside_Humidity}%
+                    <Typography variant="body1" sx={{ color: tokens.grey }}>
+                        Outside Humidity: {data.Outside_Humidity}%
+                    </Typography>
                     <LinearProgress
                         variant="determinate"
                         value={data.Outside_Humidity + 100}
@@ -93,14 +104,16 @@ const LiveWeather = () => {
                     />
                 </div>
                 <div>
-                    Pressure: {data.Inside_Pressure} hPa
+                    <Typography variant="body1" sx={{ color: tokens.grey }}>
+                        Pressure: {data.Inside_Pressure} hPa
+                    </Typography>
                     <LinearProgress
                         variant="determinate"
-                        value={((data.Inside_Pressure - 790)/30)*100 + 100} // Adjust max value as needed
+                        value={((data.Inside_Pressure - 790) / 30) * 100 + 100} // Adjust max value as needed
                         style={{ ...linearProgressStylesPres, width: '100%', marginTop: 5 }}
                     />
                 </div>
-            </Box>     
+            </Box>
         </Box>
     );
 };

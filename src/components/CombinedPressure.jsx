@@ -12,7 +12,7 @@ const Pressure = ({ isCustomLineColors = false, isDashboard = false }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://192.168.0.28:8000/limited');
+        const response = await fetch('http://192.168.0.28:8000/all');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

@@ -8,24 +8,93 @@ const CombinedHumidity = ({ isCustomLineColors = false, isDashboard = false }) =
   const colors = tokens(theme.palette.mode);
 
   const [data, setData] = useState([]);
+  const [plantData, setPlantData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetch('http://192.168.0.28:8000/limited');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+        try {
+          const response = await fetch('http://192.168.0.28:8000/all');
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+  
+          const jsonData = await response.json();
+          const updatedData = jsonData.map((entry) => {
+            const date = new Date(entry.Current_Time);
+            
+            // Extract components for the desired format
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            const seconds = String(date.getSeconds()).padStart(2, '0');
+            
+            const formattedDate = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+            
+            // Create a new Date object with the formatted date
+            const date2 = new Date(formattedDate);
+            
+            // Set seconds to 0
+            date2.setSeconds(0);
+            
+            // Get ISO string
+            const isoString = date2.toISOString();
+            
+            // Return the updated entry with the new Current_Time
+            return {
+              ...entry,
+              Current_Time: isoString,  // Update the Current_Time key
+            };
+          });
+          setData(updatedData);
+        } catch (error) {
+          console.error('Error fetching data:', error);
         }
+      };
+  
+      fetchData();
+    }, []);
 
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+    useEffect(() => {
+      const fetchData = async () => {
+          try {
+            const response = await fetch('http://192.168.0.25:8000/all');
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+    
+            const jsonData = await response.json();
+            const updatedPlantData = jsonData.map((entry) => {
+              const date = new Date(entry.Current_Time);
+              date.setSeconds(0);
+              
+              // Get ISO string
+              const isoString = date.toISOString();
+              
+              // Return the updated entry with the new Current_Time
+              return {
+                ...entry,
+                Current_Time: isoString,  // Update the Current_Time key
+              };
+            });
+            setPlantData(updatedPlantData);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
-    fetchData();
-  }, []);
+
+    const filteredData = data.filter((entry) =>
+      plantData.some((plantEntry) => plantEntry.Current_Time === entry.Current_Time)
+    );
+    
+    const filteredPlantData = plantData.filter((entry) =>
+      data.some((dataEntry) => dataEntry.Current_Time === entry.Current_Time)
+    );
   
   // Function to transform each entry
   const transformEntry_insideHumidity = (entry) => {
@@ -41,8 +110,16 @@ const CombinedHumidity = ({ isCustomLineColors = false, isDashboard = false }) =
     };
   };
 
-  const transformEntry_insideHumidity_transformed = data.map(transformEntry_insideHumidity);
-  const transformEntry_outsideHumidity_transformed = data.map(transformEntry_outsideHumidity);
+  const transformEntry_plantHumidity = (entry) => {
+    return {
+      x: entry.Current_Time,
+      y: entry.Humidity,
+    };
+  };
+
+  const transformEntry_plantHumidity_transformed = filteredPlantData.map(transformEntry_plantHumidity);
+  const transformEntry_insideHumidity_transformed = filteredData.map(transformEntry_insideHumidity);
+  const transformEntry_outsideHumidity_transformed = filteredData.map(transformEntry_outsideHumidity);
 
   const jsonData_all_humidity = [
     {
@@ -54,6 +131,11 @@ const CombinedHumidity = ({ isCustomLineColors = false, isDashboard = false }) =
       id: "Outside Humidity",
       color: tokens("dark").greenAccent[500],
       data: transformEntry_outsideHumidity_transformed,
+    },
+    {
+      id: "Plant Humidity",
+      color: tokens("dark").greenAccent[500],
+      data: transformEntry_plantHumidity_transformed,
     }
   ]
   

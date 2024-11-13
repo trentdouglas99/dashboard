@@ -2,23 +2,53 @@ import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
 import React, { useEffect, useState } from 'react';
+import { timeFormat } from 'd3-time-format';
 
 const CombinedTemperature = ({ isCustomLineColors = false, isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   const [data, setData] = useState([]);
+  const [plantData, setPlantData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
         try {
-          const response = await fetch('http://192.168.0.28:8000/limited');
+          const response = await fetch('http://192.168.0.28:8000/all');
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
   
           const jsonData = await response.json();
-          setData(jsonData);
+          const updatedData = jsonData.map((entry) => {
+            const date = new Date(entry.Current_Time);
+            
+            // Extract components for the desired format
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            const seconds = String(date.getSeconds()).padStart(2, '0');
+            
+            const formattedDate = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+            
+            // Create a new Date object with the formatted date
+            const date2 = new Date(formattedDate);
+            
+            // Set seconds to 0
+            date2.setSeconds(0);
+            
+            // Get ISO string
+            const isoString = date2.toISOString();
+            
+            // Return the updated entry with the new Current_Time
+            return {
+              ...entry,
+              Current_Time: isoString,  // Update the Current_Time key
+            };
+          });
+          setData(updatedData);
         } catch (error) {
           console.error('Error fetching data:', error);
         }
@@ -26,25 +56,75 @@ const CombinedTemperature = ({ isCustomLineColors = false, isDashboard = false }
   
       fetchData();
     }, []);
+
+    useEffect(() => {
+      const fetchData = async () => {
+          try {
+            const response = await fetch('http://192.168.0.25:8000/all');
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+    
+            const jsonData = await response.json();
+            const updatedPlantData = jsonData.map((entry) => {
+              const date = new Date(entry.Current_Time);
+              date.setSeconds(0);
+              
+              // Get ISO string
+              const isoString = date.toISOString();
+              
+              // Return the updated entry with the new Current_Time
+              return {
+                ...entry,
+                Current_Time: isoString,  // Update the Current_Time key
+              };
+            });
+            setPlantData(updatedPlantData);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
+
+
+    const filteredData = data.filter((entry) =>
+      plantData.some((plantEntry) => plantEntry.Current_Time === entry.Current_Time)
+    );
+    
+    const filteredPlantData = plantData.filter((entry) =>
+      data.some((dataEntry) => dataEntry.Current_Time === entry.Current_Time)
+    );
+
     
     // Function to transform each entry
     const transformEntry_outsideTemp = (entry) => {
       return {
-        x: entry.Current_Time,
+        x: entry.Current_Time,  // Now in "YYYY-MM-DDTHH:mm:ss" format
         y: entry.Outside_Temperature,
+      };
+  };
+  
+    let transformEntry_outsideTemp_transformed = filteredData.map(transformEntry_outsideTemp);
+  
+    const transformEntry_insideTemp = (entry) => {
+      return {
+        x: entry.Current_Time,  // Now in "YYYY-MM-DDTHH:mm:ss" format
+        y: entry.Inside_Temperature,
+      };
+    };
+    
+    let transformEntry_insideTemp_transformed = filteredData.map(transformEntry_insideTemp);
+
+    const transformEntry_plantTemp = (entry) => {
+      return {
+        x: entry.Current_Time,
+        y: entry.Temperature,
       };
     };
   
-    const transformEntry_outsideTemp_transformed = data.map(transformEntry_outsideTemp);
-  
-    const transformEntry_insideTemp = (entry) => {
-        return {
-          x: entry.Current_Time,
-          y: entry.Inside_Temperature,
-        };
-      };
-    
-    const transformEntry_insideTemp_transformed = data.map(transformEntry_insideTemp);
+    let transformEntry_plantTemp_transformed = filteredPlantData.map(transformEntry_plantTemp);
 
     const jsonData_outsideTemp = [
         {
@@ -56,8 +136,15 @@ const CombinedTemperature = ({ isCustomLineColors = false, isDashboard = false }
           id: "Outside Temperature",
           color: tokens("dark").greenAccent[500],
           data: transformEntry_outsideTemp_transformed
+        },
+        {
+          id: "Plant Temperature",
+          color: tokens("dark").greenAccent[500],
+          data: transformEntry_plantTemp_transformed
         }
     ]
+
+    
     
     return (
       <ResponsiveLine
@@ -116,8 +203,10 @@ const CombinedTemperature = ({ isCustomLineColors = false, isDashboard = false }
           tickRotation: 20,
           legendOffset: 70,
           legendPosition: "middle",
-          legend: isDashboard ? undefined : "Time", // added
-          legendStyle: "bold"
+          legend: isDashboard ? undefined : "Time",
+          legendStyle: "bold",
+          tickValues: "every 1 hour",  // Specify the interval of ticks
+          format: timeFormat("%Y-%m-%dT%H:%M:%S")  // d3.timeFormat to format time
         }}
         axisLeft={{
           orient: "left",

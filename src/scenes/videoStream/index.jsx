@@ -54,7 +54,7 @@ const VideoStream = () => {
     else if (selectedOption === "Frontyard") {
       return "http://192.168.0.20:8084/?action=stream";
     }
-    else if (selectedOption === "Backyard") {
+    else if (selectedOption === "Plants") {
       return "http://192.168.0.25:8084/?action=stream";
     }
     else if (selectedOption === "none") {
@@ -77,7 +77,7 @@ const VideoStream = () => {
     else if (selectedOption === "Frontyard") {
       return "http://192.168.0.20:8084/control.htm";
     }
-    else if (selectedOption === "Backyard") {
+    else if (selectedOption === "Plants") {
       return "http://192.168.0.25:8084/control.htm";
     }
     else if (selectedOption === "none") {
@@ -86,75 +86,67 @@ const VideoStream = () => {
   };
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      height="75vh"
-      overflowY="auto"
-      margin="20px"
-    >
-      <Header title="Live Video Stream" text-align="center" />
-
-      <Select 
-        value={selectedOption} 
-        onChange={handleChange} 
-        sx={{
-          backgroundColor: colors.blueAccent[700],
-          color: colors.grey[100],
-          fontSize: "14px",
-          fontWeight: "bold",
-          borderRadius: "5px",
-          marginBottom: "10px",
-          width: '100px', // Set a width for the dropdown
-          height: '45px'
-        }}
-      >
-        <MenuItem value="none">None</MenuItem>
-        <MenuItem value="inside">Inside</MenuItem>
-        <MenuItem value="Frontyard">Frontyard</MenuItem>
-        <MenuItem value="Backyard">Backyard</MenuItem>
-      </Select>
-
-      <Button 
-        type="submit" 
-        variant="contained" 
-        onClick={openModal} 
-        style={{textTransform: 'none'}}
-        sx={{
-          backgroundColor: colors.blueAccent[700],
-          color: colors.grey[100],
-          fontSize: "14px",
-          fontWeight: "bold",
-          borderRadius:"5px",
-          width:"100px",
-          height:"45px",
-          marginBottom: "10px", // Add space below the button
-        }}
-      >
-        Controls
-      </Button>
-
+    <Box m="10px" display="flex" flexDirection="column" alignItems="center">
+      <Box mb={2}>
+        <Header title="Live Video Stream" />
+      </Box>
+      <Box display="flex" flexDirection="column" alignItems="center" gap={2} mb={3}>
+        <Select 
+          value={selectedOption} 
+          onChange={handleChange} 
+          sx={{
+            backgroundColor: colors.blueAccent[700],
+            color: colors.grey[100],
+            fontSize: "14px",
+            fontWeight: "bold",
+            borderRadius: "5px",
+            width: '150px', // Adjust width for better alignment
+            height: '45px',
+          }}
+        >
+          <MenuItem value="none">None</MenuItem>
+          <MenuItem value="inside">Inside</MenuItem>
+          <MenuItem value="Frontyard">Frontyard</MenuItem>
+          <MenuItem value="Plants">Plants</MenuItem>
+        </Select>
+  
+        <Button 
+          type="submit" 
+          variant="contained" 
+          onClick={openModal} 
+          sx={{
+            backgroundColor: colors.blueAccent[700],
+            color: colors.grey[100],
+            fontSize: "14px",
+            fontWeight: "bold",
+            borderRadius: "5px",
+            width: "150px",
+            height: "45px",
+          }}
+        >
+          Controls
+        </Button>
+      </Box>
+  
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Controls"
         style={{
           overlay: {
-            backgroundColor: "transparent", // Set overlay background to transparent
+            backgroundColor: "rgba(0, 0, 0, 0.5)", // Slight overlay for better focus
           },
           content: {
-            left: "50%", // Center modal
+            left: "50%",
             top: "50%",
-            transform: "translate(-50%, -50%)", // Adjust to truly center
+            transform: "translate(-50%, -50%)",
             padding: '5px',
             height: '500px',
-            width: '80%', // Set a width for the modal
+            width: '80%',
           },
         }}
       >
-        <div style={{ position: 'relative'}}>
+        <Box display="flex" justifyContent="center" mb={2} position="relative">
           <button
             onClick={closeModal}
             style={{
@@ -178,18 +170,21 @@ const VideoStream = () => {
               zIndex: 0,
             }}
           ></iframe>
-        </div>
+        </Box>
       </Modal>
-
+  
       {videoStream && (
-        <img
-          style={{ width: '100%', marginTop: '20px' }} // Add some margin on top
-          src={videoStream}
-          alt={selectedOption === "liveFeed" ? "LIVE FEED" : "CONTROL"}
-        />
+        <Box mt={3} width="100%" display="flex" justifyContent="center">
+          {/* Center video with margin at top */}
+          <img
+            style={{ width: '100%' }}
+            src={videoStream}
+            alt={selectedOption === "liveFeed" ? "LIVE FEED" : "CONTROL"}
+          />
+        </Box>
       )}
     </Box>
-  );
+  );  
 };
 
 export default VideoStream;
